@@ -1,0 +1,80 @@
+public class Parent {
+	public void m1() {
+		System.out.println("from parent m1");
+	}
+}
+
+=================================================
+public abstract class Child extends Parent {
+	public abstract void m1();
+}
+===================================================
+public class SubChild extends Child {
+
+	@Override
+	public void m1() {
+		System.out.println("from m1 SubChild");
+	}
+
+}
+========================================================
+public class App {
+	public static void main(String[] args) {
+		Parent p = new Parent();
+		p.m1();
+
+		SubChild s = new SubChild();
+		s.m1();
+
+		Parent p1 = new SubChild();
+		p1.m1();
+
+		Child p2 = new SubChild();
+		p1.m1();
+	}
+}
+==============================================================
+output:-
+--------
+from parent m1
+from m1 SubChild
+from m1 SubChild
+from m1 SubChild
+=====================================================================================================================
+Overriding
+-------------
+1.overriding applicable only for methods.
+2.overriding is not applicable for variables.
+3.for variables it will consider object refernces //ex:- Parent p
+4.
+
+
+
+compiler role:-
+---------------
+1.it will check syntactical errors during compilation  //ex: Parent p=new Parent();   p.m1();
+
+
+jvm role:-
+----------
+1.jvm will consider based on the object that is created // new Child();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
